@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daily Insights — Articles & Ideas</title>
+  <meta name="description" content="Daily Insights — Read useful articles, ideas, guides and insights.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 15px;
+    }
+
+    nav a {
+      color: #d1d5db;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+      padding: 85px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      color: #dbeafe;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      background: white;
+      color: #111827;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .category {
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 30px;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      transition: 0.25s;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .article-image {
+      height: 190px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+
+    .article-content {
+      padding: 22px;
+    }
+
+    .tag {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .article-content h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .article-content p {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .read-more {
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .about {
+      background: white;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .about-box {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box p {
+      color: #6b7280;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      .articles {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      nav {
+        gap: 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 65px 20px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .articles {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 45px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav">
+      <div class="logo">Daily <span>Insights</span></div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#articles">Articles</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Discover <span>Daily Insights</span></h1>
+
+      <p>
+        Useful articles, practical ideas, guides and insights
+        to help you learn something new every day.
+      </p>
+
+      <a class="hero-button" href="#articles">Explore Articles</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="container" id="articles">
+
+      <div class="section-title">
+        <h2>Latest Articles</h2>
+        <p>Explore our latest stories and useful insights.</p>
+      </div>
+
+      <div class="categories">
+        <div class="category">Technology</div>
+        <div class="category">Business</div>
+        <div class="category">Education</div>
+        <div class="category">Lifestyle</div>
+      </div>
+
+      <div class="articles">
+
+        <article class="article-card">
+          <div class="article-image">Article Image</div>
+
+          <div class="article-content">
+            <div class="tag">Technology</div>
+
+            <h3>How Technology Is Changing Our Daily Lives</h3>
+
+            <p>
+              Discover how modern technology is changing
+              the way we work, learn and communicate.
+            </p>
+
+            <a class="read-more" href="#">Read Article →</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-image">Article Image</div>
+
+          <div class="article-content">
+            <div class="tag">Business</div>
+
+            <h3>Simple Ideas for Building a Better Future</h3>
+
+            <p>
+              Practical ideas and strategies that can help
+              you improve your work and personal goals.
+            </p>
+
+            <a class="read-more" href="#">Read Article →</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-image">Article Image</div>
+
+          <div class="article-content">
+            <div class="tag">Education</div>
+
+            <h3>Why Learning New Skills Matters</h3>
+
+            <p>
+              Learn why continuously developing new skills
+              can create better opportunities.
+            </p>
+
+            <a class="read-more" href="#">Read Article →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-box">
+
+          <div class="section-title">
+            <h2>About Daily Insights</h2>
+          </div>
+
+          <p>
+            Daily Insights is a place for useful articles,
+            practical knowledge and interesting ideas.
+            Our goal is to make learning simple and accessible.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 <strong>Daily Insights</strong>. All rights reserved.
+    </p>
+  </footer>
+
+</body>
+  </html>
